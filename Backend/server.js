@@ -15,7 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:3000',process.env.FRONTEND_URL],
+  // origin: ['http://localhost:3000',process.env.FRONTEND_URL],
+  origin: "https://user-management-app-1-bpbc.onrender.com", // Allow only your frontend
+    methods: "GET,POST,PUT,DELETE",
 
 }));
 
