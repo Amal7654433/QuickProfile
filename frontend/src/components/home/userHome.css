@@ -1,0 +1,13 @@
+.edit-btn
+{
+    border: none;
+    width: 300px;
+    background-color:rgb(169, 169, 234) ;
+    border-radius: 20px;
+}
+.btn-box
+{
+    display: flex;
+    justify-content: center;
+  
+}
