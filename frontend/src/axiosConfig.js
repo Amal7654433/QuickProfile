@@ -3,7 +3,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 const axiosInstance = axios.create({
-  baseURL: 'https://user-management-app-xrru.onrender.com',
+  baseURL: 'https://user-management-app-xrru.onrender.com',//http://localhost:4000
   withCredentials: true // Include credentials (cookies) with each request
 });
 
