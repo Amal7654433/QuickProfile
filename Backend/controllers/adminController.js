@@ -3,25 +3,31 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel')
 const Admin = require('../models/adminModel')
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 exports.adminLogin = async (req, res) => {
   const { email, password } = req.body;
+console.log(req.body)
   try {
-    const admin = await Admin.findOne({ email, password });
-    if (!admin) {
-      return res.status(404).json({ login: false });
-    }
-    const token = jwt.sign({ adminId: admin._id }, process.env.JWT_SECRET, { expiresIn: '30d' });
-    res.cookie('adminToken', token, {
-      maxAge: 30 * 24 * 60 * 60 * 1000,
-      sameSite: 'strict',
-      // httpOnly: true,
-      secure: true
+    // Get admin credentials from environment variables
+    const storedEmail = process.env.ADMIN_EMAIL;
+    const storedPassword = process.env.ADMIN_PASSWORD;
 
+    // Check if the provided email and password match the stored values
+    if (email !== storedEmail || password !== storedPassword) {
+      return res.status(400).json({ login: false, message: 'Invalid credentials' });
+    }
+
+    const token = jwt.sign({ adminId: 'admin' }, process.env.JWT_SECRET, { expiresIn: '30d' });
+
+    res.cookie('adminToken', token, {
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+      sameSite: 'strict',
+      secure: true,
+      // httpOnly: true,
     });
 
-    return res.status(200).json({ login: true, token, admin });
+    return res.status(200).json({ login: true, token });
 
   } catch (error) {
     console.error('Error during admin login:', error);

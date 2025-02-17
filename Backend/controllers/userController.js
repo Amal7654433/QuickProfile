@@ -1,12 +1,15 @@
 
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 const registerUser = async (req, res) => {
     try {
         const { name, email, phone, password } = req.body;
+        console.log(req.body)
         const hashedPassword = await bcrypt.hash(password, 10);
+  
+        console.log(hashedPassword)
         const existingUser = await User.findOne({ $or: [{ email }, { phone }] });
         if (existingUser) {
             return res.status(400).json({ message: 'Email or phone number already exists', success: false });

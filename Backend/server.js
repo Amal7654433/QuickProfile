@@ -13,12 +13,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-// app.use(cors({
-//   credentials: true,
-//   origin: ['http://localhost:3000',process.env.FRONTEND_URL],
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3000'],
 
-// }));
-app.use(cors());
+}));
+
 
 
 app.use(express.static(path.join(__dirname, 'public')));
