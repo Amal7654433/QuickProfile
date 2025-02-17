@@ -1,6 +1,4 @@
-
-
-/* AdminEditUser.css */
+/* AdminDashboard.css */
 .gradient-custom {
     background: linear-gradient(135deg, #6a11cb, #2575fc);
     min-height: 100vh;
@@ -30,12 +28,12 @@
     box-shadow: none;
 }
 
-.text-white {
-    color: white !important;
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.text-primary {
-    color: #007bff !important;
+.table-striped tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary {
@@ -54,9 +52,8 @@
 .btn-secondary {
     background: rgba(255, 255, 255, 0.2);
     border: none;
-    border-radius: 25px;
-    padding: 10px 30px;
-    font-size: 1rem;
+    border-radius: 10px;
+    padding: 10px 20px;
     transition: background 0.3s ease;
 }
 
@@ -64,13 +61,21 @@
     background: rgba(255, 255, 255, 0.3);
 }
 
-.alert-danger {
-    background: rgba(255, 0, 0, 0.2);
-    border: none;
-    color: white;
-    border-radius: 10px;
+.text-primary {
+    color: #007bff !important;
 }
 
-.rounded-circle {
-    border: 3px solid rgba(255, 255, 255, 0.3);
+.text-danger {
+    color: #dc3545 !important;
+}
+.container {
+    padding-top: 0; /* Remove top padding */
+}
+
+.table-responsive {
+    margin-top: 0; /* Remove top margin */
+}
+
+.table {
+    margin-bottom: 0; /* Remove bottom margin */
 }

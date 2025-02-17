@@ -96,68 +96,176 @@ const UserEdit = () => {
         }
     };
     return (
-        <div className="container">
-            <div className="row gutters mt-5">
-                <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                    <div className="card h-100">
-                        <div className="card-body">
-                            <div className="account-settings">
-                                <div className="user-profile">
-                                    <div className="user-avatar">
-                                        {/* <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin" /> */}
-                                        <img src={`http://localhost:4000/images/${image}`} alt="Maxwell Admin" width="150" />
+        // <div className="container">
+        //     <div className="row gutters mt-5">
+        //         <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+        //             <div className="card h-100">
+        //                 <div className="card-body">
+        //                     <div className="account-settings">
+        //                         <div className="user-profile">
+        //                             <div className="user-avatar">
+                                       
+        //                                 <img src={`http://localhost:4000/images/${image}`} alt="Maxwell Admin" width="150" />
+        //                             </div>
+        //                             <h5 className="user-name">{name}</h5>
+
+        //                         </div>
+
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //         <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+        //             <div className="card h-100">
+        //                 <div className="card-body">
+        //                     <div className="row gutters mt-4">
+        //                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        //                             <h6 className="mb-2 text-primary">Personal Details</h6>
+        //                         </div>
+        //                         {error && <div className="alert alert-danger">{error}</div>}
+        //                         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+        //                             <div className="form-group">
+        //                                 <label htmlFor="fullName">Full Name</label>
+        //                                 <input value={name} onChange={(e) => {
+        //                                     setName(e.target.value)
+
+        //                                 }} type="text" className="form-control" id="fullName" placeholder="Enter full name" />
+        //                             </div>
+        //                         </div>
+        //                         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+        //                             <div className="form-group">
+        //                                 <label htmlFor="eMail">Email</label>
+        //                                 <input value={email} onChange={(e) => {
+        //                                     setEmail(e.target.value)
+
+        //                                 }} type="email" className="form-control" id="eMail" placeholder="Enter email ID" />
+        //                             </div>
+        //                         </div>
+        //                         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+        //                             <div className="form-group">
+        //                                 <label htmlFor="phone">Phone</label>
+        //                                 <input value={phone} onChange={(e) => {
+        //                                     setPhone(e.target.value)
+
+        //                                 }} type="text" className="form-control" id="phone" maxLength={10} placeholder="Enter phone number" />
+        //                             </div>
+        //                         </div>
+
+        //                     </div>
+
+        //                     <div className="row gutters mt-3">
+        //                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        //                             <div className="text-right">
+        //                                 <button onClick={() => navigate('/admin/dashboard')} type="button" id="submit" name="submit" className="btn btn-secondary mt-4 mx-4">Cancel</button>
+        //                                 <button onClick={handleSubmit} type="button" id="submit" name="submit" className="btn btn-primary mt-4 mx-4">Update</button>
+        //                             </div>
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </div>
+        // </div>
+        <div className="admin-edit-user gradient-custom">
+            <div className="container">
+                <div className="row gutters mt-4">
+                    {/* Profile Card */}
+                    <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                        <div className="card h-100 glassmorphism-card">
+                            <div className="card-body">
+                                <div className="account-settings">
+                                    <div className="user-profile">
+                                        <div className="user-avatar">
+                                            <img
+                                                src={`http://localhost:4000/images/${image}`}
+                                                alt="User Avatar"
+                                                className="rounded-circle"
+                                                width="150"
+                                            />
+                                        </div>
+                                        <h5 className="user-name text-white mt-3">{name}</h5>
                                     </div>
-                                    <h5 className="user-name">{name}</h5>
-
                                 </div>
-
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-                    <div className="card h-100">
-                        <div className="card-body">
-                            <div className="row gutters mt-4">
-                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h6 className="mb-2 text-primary">Personal Details</h6>
-                                </div>
-                                {error && <div className="alert alert-danger">{error}</div>}
-                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div className="form-group">
-                                        <label htmlFor="fullName">Full Name</label>
-                                        <input value={name} onChange={(e) => {
-                                            setName(e.target.value)
 
-                                        }} type="text" className="form-control" id="fullName" placeholder="Enter full name" />
+                    {/* Edit Form */}
+                    <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div className="card h-100 glassmorphism-card">
+                            <div className="card-body">
+                                <div className="row gutters">
+                                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 className="mb-3 text-primary">Personal Details</h6>
+                                    </div>
+                                    {error && <div className="alert alert-danger">{error}</div>}
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div className="form-group">
+                                            <label htmlFor="fullName" className="text-white">
+                                                Full Name
+                                            </label>
+                                            <input
+                                                value={name}
+                                                onChange={(e) => setName(e.target.value)}
+                                                type="text"
+                                                className="form-control glassmorphism-input"
+                                                id="fullName"
+                                                placeholder="Enter full name"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div className="form-group">
+                                            <label htmlFor="eMail" className="text-white">
+                                                Email
+                                            </label>
+                                            <input
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                type="email"
+                                                className="form-control glassmorphism-input"
+                                                id="eMail"
+                                                placeholder="Enter email ID"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div className="form-group">
+                                            <label htmlFor="phone" className="text-white">
+                                                Phone
+                                            </label>
+                                            <input
+                                                value={phone}
+                                                onChange={(e) => setPhone(e.target.value)}
+                                                type="text"
+                                                className="form-control glassmorphism-input"
+                                                id="phone"
+                                                maxLength={10}
+                                                placeholder="Enter phone number"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div className="form-group">
-                                        <label htmlFor="eMail">Email</label>
-                                        <input value={email} onChange={(e) => {
-                                            setEmail(e.target.value)
 
-                                        }} type="email" className="form-control" id="eMail" placeholder="Enter email ID" />
-                                    </div>
-                                </div>
-                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div className="form-group">
-                                        <label htmlFor="phone">Phone</label>
-                                        <input value={phone} onChange={(e) => {
-                                            setPhone(e.target.value)
-
-                                        }} type="text" className="form-control" id="phone" maxLength={10} placeholder="Enter phone number" />
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className="row gutters mt-3">
-                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div className="text-right">
-                                        <button onClick={() => navigate('/admin/dashboard')} type="button" id="submit" name="submit" className="btn btn-secondary mt-4 mx-4">Cancel</button>
-                                        <button onClick={handleSubmit} type="button" id="submit" name="submit" className="btn btn-primary mt-4 mx-4">Update</button>
+                                {/* Buttons */}
+                                <div className="row gutters mt-4">
+                                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div className="text-right">
+                                            <button
+                                                onClick={() => navigate('/admin/dashboard')}
+                                                type="button"
+                                                className="btn btn-secondary mx-2"
+                                            >
+                                                Cancel
+                                            </button>
+                                            <button
+                                                onClick={handleSubmit}
+                                                type="button"
+                                                className="btn btn-primary mx-2"
+                                            >
+                                                Update
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

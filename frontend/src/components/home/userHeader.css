@@ -1,0 +1,47 @@
+/* Header.css */
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333 !important; /* Darker text for better contrast */
+}
+
+.navbar-nav .nav-link {
+    color: #555 !important; /* Slightly darker text for links */
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff !important; /* Change color on hover */
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Login/Logout Button Styling */
+.navbar-nav .bi-user {
+    margin-right: 5px;
+}
+
+.navbar-nav .nav-link.login-btn {
+    background-color: #007bff;
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link.login-btn:hover {
+    background-color: #0056b3;
+}

@@ -117,73 +117,92 @@ const Signup = () => {
 
     return (
         <div>
-            <section className="vh-100 bg-image" style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
-                <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-                    <div className="container h-100">
-                        <div className="row d-flex justify-content-center align-items-center h-100">
-                            <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                                <div className="card" style={{ borderRadius: '15px' }}>
-                                    <div className="card-body p-3">
-                                        <h2 className="text-uppercase text-center mb-4">Create an account</h2>
+        <section className="vh-100 gradient-custom">
+            <div className="container h-100">
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div className="card glassmorphism-card">
+                            <div className="card-body p-5 text-center">
+                                <h2 className="text-uppercase mb-4">Create an account</h2>
 
-                                        {error && <div className="alert alert-danger">{error}</div>}
+                                {error && <div className="alert alert-danger">{error}</div>}
 
-                                        <div className="form-outline mb-4">
-                                            <input type="text" id="form3Example1cg" onChange={(e) => {
-                                                setName(e.target.value)
-
-                                            }} className="form-control  form-control-md" value={name} />
-                                            <label className="form-label" htmlFor="form3Example1cg">Your Name</label>
-                                        </div>
-
-                                        <div className="form-outline mb-4">
-                                            <input onChange={(e) => {
-                                                setEmail(e.target.value)
-
-                                            }} type="email" value={email} id="form3Example3cg" className="form-control form-control-md" />
-                                            <label className="form-label" htmlFor="form3Example3cg">Your Email</label>
-                                        </div>
-                                        <div className="form-outline mb-4">
-                                            <input onChange={(e) => {
-                                                setPhone(e.target.value)
-
-                                            }} type="text" id="form3Example2cg" className="form-control form-control-md" maxLength={10} />
-                                            <label className="form-label" htmlFor="form3Example2cg">Phone Number</label>
-                                        </div>
-                                        <div className="form-outline mb-4">
-                                            <input onChange={(e) => {
-                                                setPassword(e.target.value)
-
-                                            }} type="password" value={password} id="form3Example4cg" className="form-control form-control-md" />
-                                            <label className="form-label" htmlFor="form3Example4cg">Password</label>
-                                        </div>
-                                        {/* 
-                                        <div className="form-outline mb-4">
-                                            <input type="password" id="form3Example4cdg" className="form-control form-control-md" />
-                                            <label className="form-label" htmlFor="form3Example4cdg">Repeat your password</label>
-                                        </div> */}
-
-                                        {/* <div className="form-outline mb-4">
-                                            <input type="file" id="formFile" className="form-control form-control-sm" />
-                                            <label className="form-label" htmlFor="formFile">Upload Image</label>
-                                        </div> */}
-
-                                        <div className="d-flex justify-content-center">
-                                            <button onClick={handleSubmit} disabled={loading} type="button" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
-                                        </div>
-                                        <Link to={'/login'}>  <p className="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" className="fw-bold text-body"><u>Login here</u></a></p>
-                                        </Link>
-
-
-
-                                    </div>
+                                <div className="form-outline mb-4">
+                                    <input
+                                        type="text"
+                                        id="form3Example1cg"
+                                        onChange={(e) => setName(e.target.value)}
+                                        className="form-control form-control-lg"
+                                        value={name}
+                                    />
+                                    <label className="form-label" htmlFor="form3Example1cg">
+                                        Your Name
+                                    </label>
                                 </div>
+
+                                <div className="form-outline mb-4">
+                                    <input
+                                        type="email"
+                                        id="form3Example3cg"
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        className="form-control form-control-lg"
+                                        value={email}
+                                    />
+                                    <label className="form-label" htmlFor="form3Example3cg">
+                                        Your Email
+                                    </label>
+                                </div>
+
+                                <div className="form-outline mb-4">
+                                    <input
+                                        type="text"
+                                        id="form3Example2cg"
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        className="form-control form-control-lg"
+                                        maxLength={10}
+                                    />
+                                    <label className="form-label" htmlFor="form3Example2cg">
+                                        Phone Number
+                                    </label>
+                                </div>
+
+                                <div className="form-outline mb-4">
+                                    <input
+                                        type="password"
+                                        id="form3Example4cg"
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className="form-control form-control-lg"
+                                        value={password}
+                                    />
+                                    <label className="form-label" htmlFor="form3Example4cg">
+                                        Password
+                                    </label>
+                                </div>
+
+                                <div className="d-flex justify-content-center">
+                                    <button
+                                        onClick={handleSubmit}
+                                        disabled={loading}
+                                        type="button"
+                                        className="btn btn-primary btn-lg gradient-custom-4"
+                                    >
+                                        {loading ? 'Registering...' : 'Register'}
+                                    </button>
+                                </div>
+
+                                <p className="text-center text-muted mt-4 mb-0">
+                                    Already have an account?{' '}
+                                    <Link to="/login" className="fw-bold text-body">
+                                        <u>Login here</u>
+                                    </Link>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+    </div>
     )
 }
 

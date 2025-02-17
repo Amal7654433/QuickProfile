@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import './profileEdit.css'
 import { useParams, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axiosInstance from '../../axiosConfig';
@@ -92,57 +92,74 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="container-xl px-4 mt-4">
-
-      <hr className="mt-0 mb-4" />
-      <div className="row">
-
-        <div className="col-xl-8">
-          {/* Account details card */}
-          <div className="card mb-4">
-            <div className="card-header">Account Details</div>
-            <div className="card-body">
-              {error && <div className="alert alert-danger">{error}</div>}
-              <form>
-                {/* Form Group (username) */}
-                <div className="mb-3">
-                  <label className="small mb-1" htmlFor="inputUsername">Username</label>
-                  <input className="form-control" id="inputUsername" onChange={(e) => {
-                    setName(e.target.value)
-
-                  }} value={name} type="text" placeholder="Enter your username" />
-                </div>
-
-                {/* Form Group (email address) */}
-                <div className="mb-3">
-                  <label className="small mb-1" htmlFor="inputEmailAddress">Email address</label>
-                  <input onChange={(e) => {
-                    setEmail(e.target.value)
-
-                  }} className="form-control" value={email} id="inputEmailAddress" type="email" placeholder="Enter your email address" />
-                </div>
-
-                <div className="row gx-3 mb-3">
-
-                  <div className="col-md-6">
-                    <label className="small mb-1" htmlFor="inputPhone">Phone number</label>
-                    <input className="form-control" id="inputPhone" type="tel" onChange={(e) => {
-                      setPhone(e.target.value)
-
-                    }} placeholder="Enter your phone number" maxLength={10} value={phone} />
+    <div className="profile-edit-page gradient-custom">
+      <div className="container-xl px-4 mt-4">
+        <div className="row">
+          <div className="col-xl-8">
+            {/* Account details card */}
+            <div className="card mb-4 glassmorphism-card">
+              <div className="card-header text-white">Account Details</div>
+              <div className="card-body">
+                {error && <div className="alert alert-danger">{error}</div>}
+                <form>
+                  {/* Form Group (username) */}
+                  <div className="mb-3">
+                    <label className="small mb-1 text-white" htmlFor="inputUsername">
+                      Username
+                    </label>
+                    <input
+                      className="form-control"
+                      id="inputUsername"
+                      onChange={(e) => setName(e.target.value)}
+                      value={name}
+                      type="text"
+                      placeholder="Enter your username"
+                    />
                   </div>
 
-                  {/* <div className="col-md-6">
-                    <label className="small mb-1" htmlFor="inputBirthday">password</label>
-                    <input onChange={(e) => {
-                      setPassword(e.target.value)
+                  {/* Form Group (email address) */}
+                  <div className="mb-3">
+                    <label className="small mb-1 text-white" htmlFor="inputEmailAddress">
+                      Email address
+                    </label>
+                    <input
+                      className="form-control"
+                      id="inputEmailAddress"
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
+                      type="email"
+                      placeholder="Enter your email address"
+                    />
+                  </div>
 
-                    }} className="form-control" id="inputBirthday" type="password" name="birthday" placeholder="Enter your birthday" value="06/10/1988" />
-                  </div> */}
-                </div>
+                  {/* Form Group (phone number) */}
+                  <div className="row gx-3 mb-3">
+                    <div className="col-md-6">
+                      <label className="small mb-1 text-white" htmlFor="inputPhone">
+                        Phone number
+                      </label>
+                      <input
+                        className="form-control"
+                        id="inputPhone"
+                        type="tel"
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="Enter your phone number"
+                        maxLength={10}
+                        value={phone}
+                      />
+                    </div>
+                  </div>
 
-                <button onClick={handleUpdate} className="btn btn-primary" type="button">Save changes</button>
-              </form>
+                  {/* Save Changes Button */}
+                  <button
+                    onClick={handleUpdate}
+                    className="btn btn-primary"
+                    type="button"
+                  >
+                    Save changes
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

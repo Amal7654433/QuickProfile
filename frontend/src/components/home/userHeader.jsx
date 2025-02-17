@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import Swal from 'sweetalert2';
 import Cookies from 'js-cookie'
+import './userHeader.css'
 import { userLogout } from '../../redux/authSllice';
 const UserHeader = () => {
  
@@ -40,7 +41,7 @@ const UserHeader = () => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
-                    <a href="#" className="navbar-brand">User Management</a>
+                    <a href="#" className="navbar-brand">QuickProfile</a>
                     <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span className="navbar-toggler-icon"></span>
                     </button>

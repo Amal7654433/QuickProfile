@@ -90,43 +90,77 @@ const Login = () => {
         }
     };
     return (
-        <div>  <section className="vh-100 bg-image" style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
-            <div className="mask d-flex align-items-center h-100 gradient-custom-3">
-                <div className="container h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
-                        <div className="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div className="card" style={{ borderRadius: '15px' }}>
-                                <div className="card-body p-3">
-                                    <h2 className="text-uppercase text-center mb-4">Sign in</h2>
-                                    {error && <div className="alert alert-danger">{error}</div>}
-                                    <form>
-                                        <div className="form-outline mb-4">
-                                            <input onChange={(e) => {
-                                                setEmail(e.target.value)
-                                            }} value={email} type="email" id="form3Example3cg" className="form-control form-control-md" />
-                                            <label className="form-label" htmlFor="form3Example3cg">Your Email</label>
-                                        </div>
-                                        <div onChange={(e) => {
-                                            setPassword(e.target.value)
+        <div>
+        <section className="vh-100 gradient-custom">
+            <div className="container h-100">
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div className="card glassmorphism-card">
+                            <div className="card-body p-5 text-center">
+                                <h2 className="text-uppercase mb-4">Sign In</h2>
 
-                                        }} className="form-outline mb-4">
-                                            <input type={showPassword ? 'text' : 'password'} id="form3Example4cg" className="form-control form-control-md" />
-                                            <label className="form-label" htmlFor="form3Example4cg">Password</label>
-                                            <span className="password-toggle-icon" onClick={handleTogglePassword}>
-                                            </span>
-                                        </div>
-                                        <div className="d-flex justify-content-center">
-                                            <button onClick={handleSubmit} type="button" disabled={loading} className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
-                                        </div>
-                                        <Link to={'/register'}> <p className="text-center text-muted mt-5 mb-0">Don't have an account?  <a href="#!" className="fw-bold text-body"><u>Signup here</u></a></p></Link>
-                                    </form>
-                                </div>
+                                {error && <div className="alert alert-danger">{error}</div>}
+
+                                <form onSubmit={handleSubmit}>
+                                    <div className="form-outline mb-4">
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            className="form-control form-control-lg"
+                                            
+                                        />
+                                        <label className="form-label" htmlFor="email">
+                                            Your Email
+                                        </label>
+                                    </div>
+
+                                    <div className="form-outline mb-4">
+                                        <input
+                                            type={showPassword ? 'text' : 'password'}
+                                            id="password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            className="form-control form-control-lg"
+                                            
+                                        />
+                                        <label className="form-label" htmlFor="password">
+                                            Password
+                                        </label>
+                                        <span
+                                            className="password-toggle-icon"
+                                            onClick={handleTogglePassword}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            {showPassword ? '👁️' : '👁️‍🗨️'}
+                                        </span>
+                                    </div>
+
+                                    <div className="d-flex justify-content-center">
+                                        <button
+                                            type="submit"
+                                            disabled={loading}
+                                            className="btn btn-primary btn-lg gradient-custom-4"
+                                        >
+                                            {loading ? 'Logging in...' : 'Login'}
+                                        </button>
+                                    </div>
+
+                                    <p className="text-center text-muted mt-4 mb-0">
+                                        Don't have an account?{' '}
+                                        <Link to="/register" className="fw-bold text-body">
+                                            <u>Sign up here</u>
+                                        </Link>
+                                    </p>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section></div>
+        </section>
+    </div>
     )
 }
 

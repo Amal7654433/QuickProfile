@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-    
+    import './addUser.css'
 import Swal from 'sweetalert2';
 import axiosInstance from '../axiosConfig';
 import { useParams, useNavigate, Link } from 'react-router-dom';
@@ -89,60 +89,99 @@ const AddUser = () => {
     return (
         <>
             <Header />
+            <div className="admin-add-user gradient-custom">
             <div className="container">
-                <div className="row gutters mt-5">
-
+                <div className="row gutters mt-4">
+                    {/* Add User Form */}
                     <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-                        <div className="card h-100">
+                        <div className="card h-100 glassmorphism-card">
                             <div className="card-body">
-                                <div className="row gutters mt-4">
+                                <div className="row gutters">
                                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <h6 className="mb-2 text-primary">Enter the user details</h6>
+                                        <h6 className="mb-3 text-primary">Enter the User Details</h6>
                                     </div>
                                     {error && <div className="alert alert-danger">{error}</div>}
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div className="form-group">
-                                            <label htmlFor="fullName">Full Name</label>
-                                            <input value={name} onChange={(e) => {
-                                                setName(e.target.value)
-
-                                            }} type="text" className="form-control" id="fullName" placeholder="Enter full name" />
+                                            <label htmlFor="fullName" className="text-white">
+                                                Full Name
+                                            </label>
+                                            <input
+                                                value={name}
+                                                onChange={(e) => setName(e.target.value)}
+                                                type="text"
+                                                className="form-control glassmorphism-input"
+                                                id="fullName"
+                                                placeholder="Enter full name"
+                                            />
                                         </div>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div className="form-group">
-                                            <label htmlFor="eMail">Email</label>
-                                            <input value={email} onChange={(e) => {
-                                                setEmail(e.target.value)
-
-                                            }} type="email" className="form-control" id="eMail" placeholder="Enter email ID" />
+                                            <label htmlFor="eMail" className="text-white">
+                                                Email
+                                            </label>
+                                            <input
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                type="email"
+                                                className="form-control glassmorphism-input"
+                                                id="eMail"
+                                                placeholder="Enter email ID"
+                                            />
                                         </div>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div className="form-group">
-                                            <label htmlFor="phone">Phone</label>
-                                            <input value={phone} onChange={(e) => {
-                                                setPhone(e.target.value)
-
-                                            }} type="text" className="form-control" id="phone" maxLength={10} placeholder="Enter phone number" />
+                                            <label htmlFor="phone" className="text-white">
+                                                Phone
+                                            </label>
+                                            <input
+                                                value={phone}
+                                                onChange={(e) => setPhone(e.target.value)}
+                                                type="text"
+                                                className="form-control glassmorphism-input"
+                                                id="phone"
+                                                maxLength={10}
+                                                placeholder="Enter phone number"
+                                            />
                                         </div>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div className="form-group">
-                                            <label htmlFor="phone">Password</label>
-                                            <input value={password} onChange={(e) => {
-                                                setPassword(e.target.value)
-
-                                            }} type="text" className="form-control" id="phone" placeholder="Enter the password" />
+                                            <label htmlFor="password" className="text-white">
+                                                Password
+                                            </label>
+                                            <input
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
+                                                type="password"
+                                                className="form-control glassmorphism-input"
+                                                id="password"
+                                                placeholder="Enter the password"
+                                            />
                                         </div>
                                     </div>
-
                                 </div>
-  <div className="row gutters mt-3">
+
+                                {/* Buttons */}
+                                <div className="row gutters mt-4">
                                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div className="text-right">
-                                            <button onClick={() => navigate('/admin/dashboard')} type="button" id="submit" name="submit" className="btn btn-secondary mt-4 mx-4">Cancel</button>
-                                            <button onClick={handleSubmit} type="button" id="submit" name="submit" className="btn btn-primary mt-4 mx-4">Update</button>
+                                            <button
+                                                onClick={() => navigate('/admin/dashboard')}
+                                                type="button"
+                                                className="btn btn-secondary mx-2"
+                                            >
+                                                Cancel
+                                            </button>
+                                            <button
+                                                onClick={handleSubmit}
+                                                type="button"
+                                                className="btn btn-primary mx-2"
+                                            >
+                                                Add User
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -151,6 +190,8 @@ const AddUser = () => {
                     </div>
                 </div>
             </div>
+        </div>
+
         </>
     )
 }
