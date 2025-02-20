@@ -3,7 +3,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel')
 const Admin = require('../models/adminModel')
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 exports.adminLogin = async (req, res) => {
   const { email, password } = req.body;
